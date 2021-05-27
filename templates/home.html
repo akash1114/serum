@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+
+
+    <table class="table table-hover table-responsive">
+        <tr>
+        <th>index</th>
+        <th>Coin-1 Name</th>
+        <th>Coin-1 Price</th>
+        <th>Coin-2 Name</th>
+        <th>Coin-2 Price</th>
+        <th>Updated At</th>
+        </tr>
+        {% for data in output %}
+            <tr>
+                <td>{{ data.index }}</td>
+                <td><a href="https://www.cryptocompare.com{{ data.token0.url }}">{{ data.token0.name }}</a></td>
+                <td>{{ data.token0Price|floatformat:4 }}</td>
+                <td><a href="https://www.cryptocompare.com{{ data.token1.url }}">{{ data.token1.name }}</a> </td>
+                <td>{{ data.token1Price|floatformat:4 }}</td>
+                <td>{{ data.updated }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+
+</body>
+</html>
